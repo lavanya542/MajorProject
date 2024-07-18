@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
-const initData=require('/home/panda/Desktop/project/init/data.js');
-const Listing=require('/home/panda/Desktop/project/models/listings');
+const initData=require('init/data.js');
+const Listing=require('models/listings.js');
 // const MONGO_URL="mongodb://127.0.0.1:27017/wonderlust";
 // const dbUrl=process.env.ATLASDB_URL;
 // main().then(()=>{

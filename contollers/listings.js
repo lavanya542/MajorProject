@@ -61,7 +61,7 @@ module.exports.renderEditForm=async(req,res,next)=>{
        req.flash("error","Listing you are trying to find is not existed");
        res.render("/listings");
     }else{
-       res.render("/home/panda/Desktop/project/views/listings/edit.ejs",{listing,originalListingUrl});
+       res.render("views/listings/edit.ejs",{listing,originalListingUrl});
     }
     
     
