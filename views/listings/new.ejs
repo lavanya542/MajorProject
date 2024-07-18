@@ -1,0 +1,56 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<body>
+   
+    <br><br>
+   
+    <div class="row offset-2">
+
+        <div class="col-8">
+            <h3 >Create a New Listing</h3>
+    <form method="post" action="/listings" novalidate class="need-validation" enctype="multipart/form-data"> <!-- -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" placeholder="Enter the title" class="form-control" required>
+            <div class="valid-feedback">Good</div>
+
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label" >Description</label>
+
+        <textarea  name="listing[description]" placeholder="Enter the description" class="form-control" required ></textarea>
+        <div class="invalid-feedback">Enter correct description</div>
+    </div>
+        
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+    <input type="file" name="listing[image]" placeholder="Enter the image link" class="form-control" required>
+    <div class="invalid-feedback">Enter correct Image</div>
+</div>
+        <div class="row">
+
+        
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+        <input type="text" name="listing[price]" placeholder="Enter the price" class="form-control" required>
+        <div class="valid-feedback">Good</div>
+    </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" placeholder="Enter the country" class="form-control" required>
+        <!--thes listing[title] all are become listing objects and the post code will be simpler-->
+        <div class="invalid-feedback">Enter correct country</div>
+    </div>
+    </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" placeholder="Enter the location" class="form-control" required>
+        <div class="invalid-feedback">Enter correct location</div>
+    </div>
+        
+        <br><br><br><br>
+        <button type="submit" class="btn btn-dark add-btn">ADD</button>
+    </form>
+</div>
+</div>
+</body>
