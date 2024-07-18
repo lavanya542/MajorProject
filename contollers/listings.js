@@ -1,4 +1,4 @@
-const Listing=require('/home/panda/Desktop/project/models/listings');
+const Listing=require('/home/panda/Desktop/project/models/listings.js');
 module.exports.index=async(req,res)=>{
     const alllistings= await Listing.find({});
     res.render("listings/index.ejs",{alllistings});
