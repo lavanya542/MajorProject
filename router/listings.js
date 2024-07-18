@@ -1,6 +1,6 @@
 const express=require("express");
 const router=express.Router();
-const Listing=require('/home/panda/Desktop/project/models/listings');
+const Listing=require('/home/panda/Desktop/project/models/listings.js');
 const wrapAsync=require("/home/panda/Desktop/project/utils/wrapAsync.js");
 const ExpressError=require("../utils/ExpressError.js");
 const {listingSchema,reviewSchema}=require("/home/panda/Desktop/project/schema.js");
