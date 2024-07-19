@@ -1,13 +1,13 @@
 const express=require("express");
 const router=express.Router({mergeParams:true});
-const Listing=require('/home/panda/Desktop/project/models/listings');
-const wrapAsync=require("/home/panda/Desktop/project/utils/wrapAsync.js");
+const Listing=require('../models/listings.js');
+const wrapAsync=require("../utils/wrapAsync.js");
 const ExpressError=require("../utils/ExpressError.js");
-const {listingSchema,reviewSchema}=require("/home/panda/Desktop/project/schema.js");
-const Review=require("/home/panda/Desktop/project/models/reviews.js");
-const {isLoggedIn,isOwner,validateReview,isReviewAuthor}=require("/home/panda/Desktop/project/middleware.js");
+const {listingSchema,reviewSchema}=require("../schema.js");
+const Review=require("../models/reviews.js");
+const {isLoggedIn,isOwner,validateReview,isReviewAuthor}=require("../middleware.js");
 
-const reviewController=require("/home/panda/Desktop/project/contollers/reviews.js");
+const reviewController=require("../contollers/reviews.js");
 
 //review route
 router.post("/",isLoggedIn,validateReview,wrapAsync(reviewController.createReview));

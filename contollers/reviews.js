@@ -1,5 +1,5 @@
-const Listing=require('/home/panda/Desktop/project/models/listings.js');
-const Review=require("/home/panda/Desktop/project/models/reviews.js");
+const Listing=require('../models/listings.js');
+const Review=require("../models/reviews.js");
 module.exports.createReview=async(req,res,next)=>{
     let listings=await Listing.findById(req.params.id);
     let newReview=new Review(req.body.review);

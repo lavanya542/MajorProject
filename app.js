@@ -5,16 +5,16 @@ if(process.env.NODE_ENC!="production"){
 const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
-const Listing=require('/home/panda/Desktop/project/models/listings.js');
+const Listing=require('./models/listings.js');
 const ejs=require('ejs');
-const wrapAsync=require("/home/panda/Desktop/project/utils/wrapAsync.js");
+const wrapAsync=require("./utils/wrapAsync.js");
 const ExpressError=require("./utils/ExpressError.js");
 const dbUrl=process.env.ATLASDB_URL;
 const path=require("path");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
-const {listingSchema,reviewSchema}=require("/home/panda/Desktop/project/schema.js");
-const Review=require("/home/panda/Desktop/project/models/reviews.js");
+
+const Review=require("./models/reviews.js");
 const listingsRouter=require("./router/listings.js");
 const reviewsRouter=require("./router/reviews.js");
 const userRouter=require("./router/users.js");
@@ -23,7 +23,7 @@ const mongostore=require("connect-mongo");
 const flash=require("connect-flash");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
-const User=require("/home/panda/Desktop/project/models/user.js")
+const User=require("./models/user.js")
 const store=mongostore.create({
     mongoUrl:dbUrl,
     crypto:{
@@ -115,7 +115,7 @@ app.post("/search",async(req,res)=>{
     
     let listing=await Listing.findOne({title:listingName});
     console.log(listing);
-    res.render("/home/panda/Desktop/project/views/listings/show.ejs",{listing});
+    res.render("./views/listings/show.ejs",{listing});
 })
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"page not found!"));
@@ -123,7 +123,7 @@ app.all("*",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     
     let {status=500,message="some thing went wrong"}=err;
-    res.status(status).render('/home/panda/Desktop/project/views/listings/error.ejs',{message});
+    res.status(status).render('./views/includes/error.ejs',{message});
     //res.status(status).send(message);
     
 

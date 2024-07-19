@@ -1,11 +1,11 @@
 const express=require("express");
 const router=express.Router();
-const Listing=require('/home/panda/Desktop/project/models/listings.js');
-const wrapAsync=require("/home/panda/Desktop/project/utils/wrapAsync.js");
+const Listing=require('../models/listings.js');
+const wrapAsync=require("../utils/wrapAsync.js");
 const ExpressError=require("../utils/ExpressError.js");
-const {listingSchema,reviewSchema}=require("/home/panda/Desktop/project/schema.js");
-const {isLoggedIn,isOwner,validateListing}=require("/home/panda/Desktop/project/middleware.js");
-const listingController=require("/home/panda/Desktop/project/contollers/listings.js")
+const {listingSchema,reviewSchema}=require("../schema.js");
+const {isLoggedIn,isOwner,validateListing}=require("../middleware.js");
+const listingController=require("../contollers/listings.js")
 const multer  = require('multer')
 const {storage}=require("../cloudconfig.js")
 const upload = multer({ storage })

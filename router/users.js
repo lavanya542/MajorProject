@@ -1,10 +1,10 @@
 const express=require("express");
 const router=express.Router();
-const User=require("/home/panda/Desktop/project/models/user.js");
-const wrapAsync=require("/home/panda/Desktop/project/utils/wrapAsync.js");
+const User=require("../models/user.js");
+const wrapAsync=require("../utils/wrapAsync.js");
 const passport=require("passport");
-const{saveUrl}=require("/home/panda/Desktop/project/middleware.js");
-const userController=require("/home/panda/Desktop/project/contollers/users.js");
+const{saveUrl}=require("../middleware.js");
+const userController=require("../contollers/users.js");
 router.route("/signup")
 .get(userController.renderSignUpForm)
 .post(wrapAsync(userController.signup));

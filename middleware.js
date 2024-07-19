@@ -1,7 +1,7 @@
-const Listing=require('/home/panda/Desktop/project/models/listings.js');
-const ExpressError=require("/home/panda/Desktop/project/utils/ExpressError.js");
-const {listingSchema,reviewSchema}=require("/home/panda/Desktop/project/schema.js");
-const Review=require("/home/panda/Desktop/project/models/reviews.js");
+const Listing=require('./models/listings.js');
+const ExpressError=require("./utils/ExpressError.js");
+const {listingSchema,reviewSchema}=require("./schema.js");
+const Review=require("./models/reviews.js");
 
 module.exports.isLoggedIn=(req,res,next)=>{
      req.session.redirectUrl=req.originalUrl;
