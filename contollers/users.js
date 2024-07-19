@@ -1,6 +1,6 @@
 const User=require("../models/user.js");
 module.exports.renderSignUpForm=(req,res)=>{
-    res.render("views/users/signup.ejs");
+    res.render("./users/signup.ejs");
 };
 module.exports.signup=async(req,res)=>{
     try{
@@ -17,7 +17,7 @@ module.exports.signup=async(req,res)=>{
     
 }
 module.exports.renderLoginForm=(req,res)=>{
-    res.render("views/users/login.ejs")
+    res.render("./users/login.ejs")
 }
 module.exports.login=async(req,res)=>{
     req.flash("success","welocme to wanderlust!");
