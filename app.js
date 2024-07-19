@@ -62,9 +62,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,'/public')));
-app.get("/",(req,res)=>{
-    res.send("Hi I'M root");
-});
+
 app.use(session(sessionOptions));
 app.use(flash());
 app.use(passport.initialize());
@@ -110,12 +108,15 @@ app.use("/",userRouter)
 
 
 // });
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+})
 app.post("/search",async(req,res)=>{
     let {listingName}=req.body;
     
     let listing=await Listing.findOne({title:listingName});
     console.log(listing);
-    res.render("./views/listings/show.ejs",{listing});
+    res.render("./listings/show.ejs",{listing});
 })
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"page not found!"));
@@ -123,7 +124,7 @@ app.all("*",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     
     let {status=500,message="some thing went wrong"}=err;
-    res.status(status).render('./views/includes/error.ejs',{message});
+    res.status(status).render('./includes/error.ejs',{message});
     //res.status(status).send(message);
     
 
